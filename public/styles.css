@@ -1,0 +1,129 @@
+/* Define CSS variables for easy color management and consistency */
+:root {
+    --primary-bg: #f5f5dc; /* Light beige for main backgrounds */
+    --secondary-bg: #dcdcdc; /* Light gray for input fields and secondary elements */
+    --accent-color: #ff8c00; /* Orange for buttons and interactive elements */
+    --text-color: #000000; /* Black for text readability */
+    --border-color: #333333; /* Dark gray for borders */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Set global styles for the body, including font and background */
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-bg);
+}
+
+/* Style the main container with rounded corners and a subtle shadow */
+.container {
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Style text inputs and textareas with light gray backgrounds and rounded corners */
+input[type="text"],
+textarea {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style buttons with orange background, white border, and hover effect */
+button {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Style tables for analysis results and logs, leveraging Bootstrap's .table class */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--secondary-bg);
+}
+
+/* Style editable table cells with a white background and hover effect */
+.table td[contenteditable="true"] {
+    background-color: #ffffff;
+    cursor: text;
+}
+
+.table td[contenteditable="true"]:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style specific sections for better spacing */
+#food-input,
+#analysis-results,
+#logs {
+    margin-top: 20px;
+}
+
+/* Italicize the summary paragraph for emphasis */
+#summary {
+    font-style: italic;
+    color: var(--text-color);
+}
+
+/* Add margin to the logs table for spacing */
+#logs-table {
+    margin-top: 10px;
+}
+
+/* Style the username section using flexbox for side-by-side layout on larger screens */
+#username-section {
+    display: flex;
+    gap: 10px;
+}
+
+#username-section input,
+#username-section button {
+    flex: 1;
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    textarea,
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    #username-section {
+        flex-direction: column;
+    }
+}

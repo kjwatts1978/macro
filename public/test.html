@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Status Page</h1>
+        <div id="deployment-status">
+            <h2>Deployment Status</h2>
+            <p>Live</p>
+        </div>
+        <div id="database-status">
+            <h2>Database Status</h2>
+            <p id="db-status">Loading...</p>
+        </div>
+    </div>
+    <script>
+        // Fetch database status from the API endpoint
+        fetch('/api/status')
+            .then(response => response.json())
+            .then(data => {
+                const dbStatus = document.getElementById('db-status');
+                if (data.connected) {
+                    dbStatus.textContent = 'Connected';
+                } else {
+                    dbStatus.textContent = `Error: ${data.error}`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('db-status').textContent = `Error: ${error.message}`;
+            });
+    </script>
+</body>
+</html>
