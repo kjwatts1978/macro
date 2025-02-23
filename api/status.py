@@ -14,6 +14,3 @@ def status():
         return jsonify({'connected': True})
     except Exception as e:
         return jsonify({'connected': False, 'error': str(e)})
-
-if __name__ == '__main__':
-    app.run()

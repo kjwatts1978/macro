@@ -34,6 +34,3 @@ def add_log():
         return jsonify({'success': True})
     finally:
         conn.close()
-
-if __name__ == '__main__':
-    app.run()

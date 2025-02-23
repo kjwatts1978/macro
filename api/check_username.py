@@ -16,6 +16,3 @@ def check_username():
         return jsonify({'exists': exists})
     finally:
         conn.close()
-
-if __name__ == '__main__':
-    app.run()

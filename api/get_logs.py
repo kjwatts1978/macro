@@ -22,6 +22,3 @@ def get_logs():
         return jsonify({'logs': logs_list})
     finally:
         conn.close()
-
-if __name__ == '__main__':
-    app.run()
