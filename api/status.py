@@ -1,17 +1,12 @@
-from flask import Flask, jsonify
-import psycopg2
-import os
+from . import create_app, get_db_connection
+from flask import jsonify
 
-app = Flask(__name__)
-
-# Get the database connection string from environment variables
-conn_string = os.getenv('POSTGRES_URL')
+app = create_app()
 
 @app.route('/api/status', methods=['GET'])
 def status():
     try:
-        # Attempt to connect and execute a simple query
-        conn = psycopg2.connect(conn_string)
+        conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT 1")
         cursor.close()
